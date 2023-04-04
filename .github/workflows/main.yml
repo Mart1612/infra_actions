@@ -1,7 +1,21 @@
 # .github/workflows/main.yml
-
-# Тут ваши задачи тестирования и сборки образа
-# ...
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
 # Сразу после них добавьте новую задачу: деплой приложения
 build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
